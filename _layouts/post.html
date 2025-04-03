@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row py-4">
+        <div class="col">
+            <p class="text-muted">📅 {{ page.date | date: "%-d %B %Y" }}</p>
+        </div>
+        <div class="col-sm-auto">
+            {% for tag in page.tags %}
+                <span class="badge rounded-pill bg-primary">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {{ content }}
+</div>

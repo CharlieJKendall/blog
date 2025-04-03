@@ -1,0 +1,33 @@
+---
+layout: default
+title: Latest Posts
+subtitle: I like to write about all things software development, particularly topics relating to DevOps and smart coding practices 🖥️ I've been living in the Microsoft world for the most part, so many posts are focused on Azure and C# .NET
+---
+
+<section class="recent-posts">
+    {% for post in paginator.posts %}
+    <div class="card text-dark bg-light shadow mb-4">
+        <div class="row g-0">
+            <div class="col-sm-auto align-self-center p-4">
+                <a href="{{ post.url }}">
+                    <img class="rounded mx-auto d-block card-img-left border border-secondary" src="/assets/img/{{ post.date | date: "%Y-%m-%d" }}-{{ post.slug }}/thumbnail.jpg">
+                </a>
+            </div>
+            <div class="col-sm pb-2">
+                <div class="card-body h-100 d-flex flex-column">
+                    <a class="card-title" href="{{ post.url }}"><h5>{{ post.title }}</h5></a>
+                    <p class="card-text"><small class="text-muted">📅 {{ post.date | date: "%-d %B %Y" }}</small></p>
+                    <p class="card-text flex-grow-1">{{ post.summary }}</p>
+                    <div>
+                        <a href="{{ post.url }}" class="btn btn-primary float-end">Read Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<div class="d-flex justify-content-center">
+    {% include pagination_bar.html %}
+</div>
